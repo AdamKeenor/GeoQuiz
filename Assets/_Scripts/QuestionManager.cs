@@ -27,8 +27,10 @@ public class QuestionManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     { 
-        if (Input.anyKeyDown)
+        // Checks input
+        if (Input.GetKeyUp("right"))
         {
+            // Checks Havn't run out of images
             if (currentImage < totalImages)
             {
                 Debug.Log("i: " + currentImage);
@@ -36,6 +38,18 @@ public class QuestionManager : MonoBehaviour
                 Debug.Log("Country: " + countryImages[currentImage].name);
                 s.sprite = countryImages[currentImage];
                 currentImage++;
+            }
+        }
+
+        if (Input.GetKeyUp("left"))
+        {
+            if (currentImage > 0)
+            {
+                Debug.Log("i: " + currentImage);
+                Debug.Log("iC: " + totalImages);
+                Debug.Log("Country: " + countryImages[currentImage].name);
+                s.sprite = countryImages[currentImage];
+                currentImage--;
             }
         }
     }
